@@ -39,7 +39,6 @@ public class Module extends AbstractModule {
         bind(Counter.class).to(AtomicCounter.class);
         bind(ICommandHandlerFactory.class).to(CommandHandlerFactory.class);
 
-        //bind(new TypeLiteral<ICommandHandler<CreateBookCommand>>(){}).to(CreateBookCommandHandler.class);
         try {
             Class[] handlerClasses = getClasses("windy.infrastructure.commandhandlers.impl");
             for(int i = 0; i < handlerClasses.length ; i++){
@@ -67,7 +66,7 @@ public class Module extends AbstractModule {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         assert classLoader != null;
         String path = packageName.replace('.', '/');
-        Enumeration resources = classLoader.getResources(path);
+        Enumeration<URL> resources = classLoader.getResources(path);
         List<File> dirs = new ArrayList<>();
         while (resources.hasMoreElements()) {
             URL resource = (URL) resources.nextElement();

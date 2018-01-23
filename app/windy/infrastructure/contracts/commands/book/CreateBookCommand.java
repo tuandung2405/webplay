@@ -2,9 +2,6 @@ package windy.infrastructure.contracts.commands.book;
 
 import java.util.UUID;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class CreateBookCommand extends BookCommand {
 
 	private String title;

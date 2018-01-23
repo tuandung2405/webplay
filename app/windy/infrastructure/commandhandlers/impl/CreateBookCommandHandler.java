@@ -1,5 +1,7 @@
 package windy.infrastructure.commandhandlers.impl;
 
+import com.google.inject.Inject;
+
 import windy.infrastructure.commandhandlers.BookCommandHandler;
 import windy.infrastructure.contracts.commands.book.CreateBookCommand;
 import windy.infrastructure.domains.Book;
@@ -7,6 +9,7 @@ import windy.infrastructure.repositories.BookRepository;
 
 public class CreateBookCommandHandler extends BookCommandHandler<CreateBookCommand> {
 
+	@Inject
 	public CreateBookCommandHandler(BookRepository bookRepository) {
 		super(bookRepository);
 	}
