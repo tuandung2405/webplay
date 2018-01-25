@@ -6,7 +6,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import windy.framework.contracts.IDomain;
-import windy.framework.repository.IDomainRepository;
+import windy.framework.eventsource.IDomainRepository;
 
 public class BaseRepository<T extends IDomain> implements IDomainRepository<T> {
 
