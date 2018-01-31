@@ -1,13 +1,10 @@
 package windy.infrastructure.domains;
 
-import java.util.UUID;
+import windy.framework.eventsource.domains.BaseAggregateRoot;
 
-import windy.framework.contracts.IDomain;
+public class Magazine extends BaseAggregateRoot {
 
-public class Magazine extends IDomain {
-
-	public Magazine(UUID uid) {
-		super(uid);
+	public Magazine() {
 	}
 
 	private String title;

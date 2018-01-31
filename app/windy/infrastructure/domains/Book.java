@@ -1,13 +1,11 @@
 package windy.infrastructure.domains;
 
-import java.util.UUID;
+import windy.framework.eventsource.domains.BaseAggregateRoot;
 
-import windy.framework.contracts.IDomain;
-
-public class Book extends IDomain {
+public class Book extends BaseAggregateRoot {
 	
-	public Book(UUID uid) {
-		super(uid);
+	public Book() {
+		super();
 	}
 
 	private String title;
