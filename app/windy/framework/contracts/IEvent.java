@@ -2,29 +2,15 @@ package windy.framework.contracts;
 
 import java.util.UUID;
 
-public abstract class IEvent {
+public interface IEvent {
 
-	private UUID uid;
-	private UUID sourceId;
-	private int version;
+	public UUID getSourceId();
 
-	protected UUID getSourceId() {
-		return sourceId;
-	}
+	public void setSourceId(UUID sourceId);
 
-	protected void setSourceId(UUID sourceId) {
-		this.sourceId = sourceId;
-	}
+	public int getVersion();
 
-	protected int getVersion() {
-		return version;
-	}
+	public void setVersion(int version);
 
-	protected void setVersion(int version) {
-		this.version = version;
-	}
-
-	protected UUID getUid() {
-		return uid;
-	}
+	public UUID getUid();
 }

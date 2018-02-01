@@ -1,28 +1,21 @@
 package controllers;
 
-import controllers.result.ApiResult;
-import play.libs.Json;
-import play.mvc.Controller;
-import play.mvc.Result;
-import windy.framework.core.ICommandBus;
-import windy.framework.infrastructure.messaging.CommandBus;
-import windy.infrastructure.contracts.commands.book.CreateBookCommand;
-import windy.infrastructure.contracts.commands.book.DeleteBookCommand;
-import windy.infrastructure.contracts.commands.book.UpdateBookCommand;
-import windy.infrastructure.contracts.commands.magazine.CreateMagazineCommand;
-
-import windy.infrastructure.contracts.commands.magazine.DeleteMagazineCommand;
-import windy.infrastructure.contracts.commands.magazine.UpdateMagazineCommand;
-import windy.infrastructure.domains.Book;
-import windy.infrastructure.domains.Magazine;
-import windy.infrastructure.repositories.BookRepository;
-import windy.infrastructure.repositories.MagazineRepository;
-
 import java.util.UUID;
 
 import javax.inject.Inject;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
+import controllers.result.ApiResult;
+import play.libs.Json;
+import play.mvc.Controller;
+import play.mvc.Result;
+import windy.framework.infrastructure.messaging.CommandBus;
+import windy.infrastructure.contracts.commands.magazine.CreateMagazineCommand;
+import windy.infrastructure.contracts.commands.magazine.DeleteMagazineCommand;
+import windy.infrastructure.contracts.commands.magazine.UpdateMagazineCommand;
+import windy.infrastructure.domains.Magazine;
+import windy.infrastructure.repositories.MagazineRepository;
 
 public class MagazineController extends Controller{
 

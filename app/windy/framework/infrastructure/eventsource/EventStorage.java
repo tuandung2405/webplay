@@ -3,10 +3,10 @@ package windy.framework.infrastructure.eventsource;
 import java.util.UUID;
 
 import windy.framework.contracts.IEvent;
-import windy.framework.eventsource.IEventSource;
-import windy.framework.eventsource.IEventStorage;
+import windy.framework.core.eventsource.IEventSource;
+import windy.framework.core.eventsource.IEventStorage;
 
-public class EventStorage implements IEventStorage{
+public class EventStorage implements IEventStorage {
 
 	@Override
 	public boolean doesEventSourceExist(UUID uid) {
@@ -23,7 +23,7 @@ public class EventStorage implements IEventStorage{
 	@Override
 	public void save(IEventSource source) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

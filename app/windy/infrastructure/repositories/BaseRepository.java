@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import windy.framework.contracts.IDomain;
-import windy.framework.eventsource.IDomainRepository;
+import windy.framework.core.domains.BaseAggregateRoot;
+import windy.framework.core.repository.IReadRepository;
 
-public class BaseRepository<T extends IDomain> implements IDomainRepository<T> {
+public class BaseRepository<T extends BaseAggregateRoot> implements IReadRepository<T> {
 
 	Class<T> clazz;
 	protected List<T> list;

@@ -4,9 +4,9 @@ package windy.framework.infrastructure.messaging;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import windy.framework.contracts.Command;
-import windy.framework.core.ICommandBus;
-import windy.framework.core.ICommandHandlerFactory;
+import windy.framework.contracts.ICommand;
+import windy.framework.core.messaging.ICommandBus;
+import windy.framework.core.messaging.ICommandHandlerFactory;
 
 @Singleton
 public class CommandBus implements ICommandBus {
@@ -20,8 +20,9 @@ public class CommandBus implements ICommandBus {
     }
 
     @Override
-    public <T extends Command> void send(T command) {
+    public <T extends ICommand> void send(T command) {
 
         commandHandlerFactory.createCommandHandler(command).handle(command);
     }
+
 }

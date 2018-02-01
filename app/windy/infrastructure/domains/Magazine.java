@@ -1,6 +1,6 @@
 package windy.infrastructure.domains;
 
-import windy.framework.eventsource.domains.BaseAggregateRoot;
+import windy.framework.core.domains.BaseAggregateRoot;
 
 public class Magazine extends BaseAggregateRoot {
 

@@ -1,4 +1,4 @@
-package windy.framework.repository;
+package windy.framework.core.repository;
 
 import java.util.UUID;
 

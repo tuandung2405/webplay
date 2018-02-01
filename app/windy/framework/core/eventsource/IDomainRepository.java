@@ -1,4 +1,4 @@
-package windy.framework.eventsource;
+package windy.framework.core.eventsource;
 
 import java.util.UUID;
 

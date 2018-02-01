@@ -2,9 +2,9 @@ package windy.framework.infrastructure.eventsource;
 
 import java.util.UUID;
 
-import windy.framework.eventsource.IDomainRepository;
-import windy.framework.eventsource.IEventSource;
-import windy.framework.eventsource.IEventStorage;
+import windy.framework.core.eventsource.IDomainRepository;
+import windy.framework.core.eventsource.IEventSource;
+import windy.framework.core.eventsource.IEventStorage;
 
 public class DomainRepository implements IDomainRepository {
 

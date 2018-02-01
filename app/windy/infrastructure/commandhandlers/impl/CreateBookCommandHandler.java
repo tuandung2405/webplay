@@ -16,7 +16,7 @@ public class CreateBookCommandHandler extends BookCommandHandler<CreateBookComma
 
 	@Override
 	public void handle(CreateBookCommand command) {
-		Book b = new Book(command.getUid());
+		Book b = new Book();
 		b.setTitle(command.getTitle());
 		b.setAuthor(command.getAuthor());
 		b.setCount(1);

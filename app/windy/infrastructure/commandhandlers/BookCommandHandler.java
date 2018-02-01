@@ -3,7 +3,7 @@ package windy.infrastructure.commandhandlers;
 
 import com.google.inject.Inject;
 
-import windy.framework.core.ICommandHandler;
+import windy.framework.core.messaging.ICommandHandler;
 import windy.infrastructure.contracts.commands.book.BookCommand;
 import windy.infrastructure.repositories.BookRepository;
 

@@ -1,7 +1,5 @@
 package windy.infrastructure.repositories;
 
-import java.util.UUID;
-
 import windy.infrastructure.domains.Magazine;
 
 public class MagazineRepository extends BaseRepository<Magazine>{
@@ -18,9 +16,9 @@ public class MagazineRepository extends BaseRepository<Magazine>{
 	}
 	
 	private void justTest() {
-		Magazine magazine = new Magazine(UUID.randomUUID());
+		Magazine magazine = new Magazine();
 		magazine.setTitle("magazine");
-		magazine.setAuthor("duong1");
+		magazine.setAuthor("Dung1");
 		magazine.setCreatedAt(System.currentTimeMillis());
 		magazine.setPublishedDate(System.currentTimeMillis());
 		magazine.setActive(true);

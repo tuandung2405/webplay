@@ -12,8 +12,8 @@ import com.google.inject.name.Names;
 import services.ApplicationTimer;
 import services.AtomicCounter;
 import services.Counter;
-import windy.framework.core.ICommandHandler;
-import windy.framework.core.ICommandHandlerFactory;
+import windy.framework.core.messaging.ICommandHandler;
+import windy.framework.core.messaging.ICommandHandlerFactory;
 import windy.framework.infrastructure.messaging.CommandHandlerFactory;
 
 /**
