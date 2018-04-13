@@ -5,9 +5,9 @@ import windy.infrastructure.contracts.commands.magazine.CreateMagazineCommand;
 import windy.infrastructure.contracts.commands.magazine.DeleteMagazineCommand;
 import windy.infrastructure.contracts.commands.magazine.UpdateMagazineGeneralInfoCommand;
 
-public class Magazine extends BaseAggregateRoot {
+public class MagazineDomain extends BaseAggregateRoot {
 
-	public Magazine() {
+	public MagazineDomain() {
 		super();
 	}
 

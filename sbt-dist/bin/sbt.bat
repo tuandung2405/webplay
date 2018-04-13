@@ -27,7 +27,7 @@ set _JAVACMD=%JAVACMD%
 
 if "%_JAVACMD%"=="" (
   if not "%JAVA_HOME%"=="" (
-    if exist "C:\Program Files\Java\jdk1.8.0_151\binjava.exe" set "_JAVACMD=C:\Program Files\Java\jdk1.8.0_151\bin\java.exe"
+    if exist "%JAVA_HOME%\bin\java.exe" set "_JAVACMD=%JAVA_HOME%\bin\java.exe"
   )
 )
 

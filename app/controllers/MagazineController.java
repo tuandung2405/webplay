@@ -14,7 +14,7 @@ import windy.framework.infrastructure.messaging.CommandBus;
 import windy.infrastructure.contracts.commands.magazine.CreateMagazineCommand;
 import windy.infrastructure.contracts.commands.magazine.DeleteMagazineCommand;
 import windy.infrastructure.contracts.commands.magazine.UpdateMagazineCommand;
-import windy.infrastructure.domains.Magazine;
+import windy.infrastructure.domains.MagazineDomain;
 import windy.infrastructure.repositories.MagazineRepository;
 
 public class MagazineController extends Controller{
@@ -45,7 +45,7 @@ public class MagazineController extends Controller{
     }
 
     public Result get(String uuid){
-        Magazine book = magazineRepository.getById(UUID.fromString(uuid));
+        MagazineDomain book = magazineRepository.getById(UUID.fromString(uuid));
         ApiResult apiResult = new ApiResult();
         apiResult.setData(book);
         return ok(Json.toJson(apiResult));

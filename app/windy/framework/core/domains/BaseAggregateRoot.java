@@ -6,6 +6,7 @@ import windy.framework.core.eventsource.IEventSource;
 public abstract class BaseAggregateRoot implements IEventSource {
 
 	protected String id;
+	protected int version;
 	
 	@Override
 	public String getId() {
@@ -14,8 +15,7 @@ public abstract class BaseAggregateRoot implements IEventSource {
 
 	@Override
 	public int getVersion() {
-		// TODO Auto-generated method stub
-		return 0;
+		return version;
 	}
 /*
 	@Override

@@ -4,19 +4,11 @@ import windy.framework.contracts.ICommand;
 
 public abstract class Command implements ICommand {
 
-	protected String uid;
+	protected String id;
 
-	public Command(String uid) {
+	public Command(String id) {
 		super();
-		this.uid = uid;
-	}
-
-	public String getUid() {
-		return uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
+		this.id = id;
 	}
 
 	public void execute() {

@@ -1,14 +1,20 @@
 package windy.infrastructure.domains;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import windy.framework.contracts.IEvent;
 import windy.framework.core.domains.BaseAggregateRoot;
 import windy.infrastructure.contracts.commands.book.CreateBookCommand;
-import windy.infrastructure.contracts.commands.book.DeleteBookCommand;
-import windy.infrastructure.contracts.commands.book.UpdateBookGeneralInfoCommand;
+import windy.infrastructure.contracts.events.BookCreatedEvent;
 
-public class Book extends BaseAggregateRoot {
+public class BookDomain extends BaseAggregateRoot {
+
+	List<IEvent> changes;
 	
-	public Book() {
+	public BookDomain() {
 		super();
+		changes = new ArrayList<>();
 	}
 
 	private String title;
@@ -66,21 +72,34 @@ public class Book extends BaseAggregateRoot {
 		this.count = count;
 	}
 
-	public void apply(CreateBookCommand command) {
-		this.id = command.getId();
-		this.author = command.getAuthor();
-		this.title = command.getTitle();
-        this.publishedDate = System.currentTimeMillis();
-        this.isActive = true;
-        this.count = 1;
+	public void create(CreateBookCommand command) {
+		IEvent e = new BookCreatedEvent();
+		apply(e);
+		when(e);
 	}
 	
-	public void apply(UpdateBookGeneralInfoCommand command) {
+	private void apply(IEvent e) {
+		e.setVersion(e.getVersion() + 1);
+		e.setSourceId(this.id);
+		changes.add(e);
+	}
+
+	private void when(BookCreatedEvent event) {
+		this.id = event.getId();
+		this.version = event.getVersion();
+		
+	}
+
+	public List<IEvent> getChanges() {
+		return changes;
+	}
+	
+/*	public void when(UpdateBookGeneralInfoCommand command) {
 		this.author = command.getAuthor();
 		this.title = command.getTitle();
 	}
-	
-	public void apply(DeleteBookCommand command) {
+
+	public void when(DeleteBookCommand command) {
 		this.count = 0;
-	}
+	}*/
 }

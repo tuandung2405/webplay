@@ -4,5 +4,5 @@ public interface ICommand {
 	
 	public String getId();
 
-	public void setId();
+	public void setId(String id);
 }

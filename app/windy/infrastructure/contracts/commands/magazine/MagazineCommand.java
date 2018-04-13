@@ -10,13 +10,11 @@ public class MagazineCommand extends Command {
 
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	@Override
-	public void setId() {
-		// TODO Auto-generated method stub
-		
+	public void setId(String id) {
+		super.id = id;
 	}
 }

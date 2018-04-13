@@ -1,6 +1,8 @@
 package windy.infrastructure.contracts.commands.book;
 
-public class CreateBookCommand extends BookCommand {
+import windy.framework.contracts.IEvent;
+
+public class CreateBookCommand extends BookCommand implements IEvent {
 
 	private String title;
 	private String author;
@@ -17,5 +19,29 @@ public class CreateBookCommand extends BookCommand {
 
 	public String getAuthor() {
 		return author;
+	}
+
+	@Override
+	public String getSourceId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSourceId(String sourceId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getVersion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setVersion(int version) {
+		// TODO Auto-generated method stub
+		
 	}
 }

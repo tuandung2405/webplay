@@ -3,21 +3,21 @@ package windy.infrastructure.repositories;
 import javax.inject.Singleton;
 
 import windy.framework.core.eventsource.IDomainRepository;
-import windy.infrastructure.domains.Book;
+import windy.infrastructure.domains.BookDomain;
 
-public class BookRepository implements IDomainRepository<Book> {
+public class BookRepository implements IDomainRepository<BookDomain> {
 
-	Book book;
+	BookDomain book;
 	
 	@Singleton
-	public BookRepository(Book book) {
+	public BookRepository(BookDomain book) {
 		super();
 		this.book = book;
 //		justTest();
 	}
 
 	@Override
-	public Book getById(String id) {
+	public BookDomain getById(String id) {
 		
 		return null;
 	}
@@ -29,7 +29,7 @@ public class BookRepository implements IDomainRepository<Book> {
 	}
 
 	@Override
-	public void save(Book aggregate) {
+	public void save(BookDomain aggregate) {
 		// TODO Auto-generated method stub
 		
 	}

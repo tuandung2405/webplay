@@ -1,9 +1,9 @@
 package windy.infrastructure.repositories;
 
 import windy.framework.core.eventsource.IDomainRepository;
-import windy.infrastructure.domains.Magazine;
+import windy.infrastructure.domains.MagazineDomain;
 
-public class MagazineRepository implements IDomainRepository<Magazine>{
+public class MagazineRepository implements IDomainRepository<MagazineDomain>{
 
 
 	public MagazineRepository() {
@@ -12,7 +12,7 @@ public class MagazineRepository implements IDomainRepository<Magazine>{
 	}
 
 	@Override
-	public Magazine getById(String id) {
+	public MagazineDomain getById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -24,7 +24,7 @@ public class MagazineRepository implements IDomainRepository<Magazine>{
 	}
 
 	@Override
-	public void save(Magazine aggregate) {
+	public void save(MagazineDomain aggregate) {
 		// TODO Auto-generated method stub
 		
 	}

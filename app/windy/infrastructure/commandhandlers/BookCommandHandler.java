@@ -6,19 +6,18 @@ import com.google.inject.Inject;
 import windy.framework.core.eventsource.IDomainRepository;
 import windy.framework.core.messaging.ICommandHandler;
 import windy.infrastructure.contracts.commands.book.BookCommand;
-import windy.infrastructure.domains.Book;
+import windy.infrastructure.domains.BookDomain;
 
 public abstract class BookCommandHandler<T extends BookCommand> implements ICommandHandler<T> {
 
-	private IDomainRepository<Book> repository;
+	private IDomainRepository<BookDomain> repository;
 	
 	@Inject
-	public BookCommandHandler(IDomainRepository<Book> repository) {
+	public BookCommandHandler(IDomainRepository<BookDomain> repository) {
 		this.repository = repository;
 	}
 	
-	public IDomainRepository<Book> getBookRepository() {
+	public IDomainRepository<BookDomain> getBookRepository() {
 		return repository;
 	}
-
 }

@@ -2,27 +2,25 @@ package windy.infrastructure.commandhandlers.impl;
 
 import com.google.inject.Inject;
 
-import windy.infrastructure.commandhandlers.BookCommandHandler;
+import windy.framework.core.eventsource.IDomainRepository;
+import windy.framework.core.messaging.ICommandHandler;
 import windy.infrastructure.contracts.commands.book.UpdateBookGeneralInfoCommand;
-import windy.infrastructure.domains.Book;
-import windy.infrastructure.repositories.BookRepository;
+import windy.infrastructure.domains.BookDomain;
 
-public class UpdateBookGeneralInfoCommandHandler extends BookCommandHandler<UpdateBookGeneralInfoCommand> {
+public class UpdateBookGeneralInfoCommandHandler implements ICommandHandler<UpdateBookGeneralInfoCommand> {
 
+	IDomainRepository<BookDomain> repository;
+	
 	@Inject
-	public UpdateBookGeneralInfoCommandHandler(BookRepository bookRepository) {
-		super(bookRepository);
+	public UpdateBookGeneralInfoCommandHandler(IDomainRepository<BookDomain> repository) {
+		this.repository = repository;
 	}
 
 	@Override
 	public void handle(UpdateBookGeneralInfoCommand command) {
-		Book b = getBookRepository().getById(command.getUid());
-		if (b != null) {
-			b.setTitle(command.getTitle());
-			b.setAuthor(command.getAuthor());
-
-			getBookRepository().update(b);
-		}
+		BookDomain book = new BookDomain();
+		book.apply(command);
+		repository.save(book);
 	}
 
 }

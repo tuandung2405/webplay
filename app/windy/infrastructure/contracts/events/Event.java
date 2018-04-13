@@ -1,4 +1,4 @@
-package windy.infrastructure.contracts.commands;
+package windy.infrastructure.contracts.events;
 
 import windy.framework.contracts.IEvent;
 

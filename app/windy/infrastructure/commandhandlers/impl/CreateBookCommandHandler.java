@@ -2,28 +2,24 @@ package windy.infrastructure.commandhandlers.impl;
 
 import com.google.inject.Inject;
 
-import windy.infrastructure.commandhandlers.BookCommandHandler;
+import windy.framework.core.eventsource.IDomainRepository;
+import windy.framework.core.messaging.ICommandHandler;
 import windy.infrastructure.contracts.commands.book.CreateBookCommand;
-import windy.infrastructure.domains.Book;
-import windy.infrastructure.repositories.BookRepository;
+import windy.infrastructure.domains.BookDomain;
 
-public class CreateBookCommandHandler extends BookCommandHandler<CreateBookCommand> {
+public class CreateBookCommandHandler implements ICommandHandler<CreateBookCommand> {
 
+	IDomainRepository<BookDomain> repository;
+	
 	@Inject
-	public CreateBookCommandHandler(BookRepository bookRepository) {
-		super(bookRepository);
+	public CreateBookCommandHandler(IDomainRepository<BookDomain> repository) {
+		this.repository = repository;
 	}
 
 	@Override
 	public void handle(CreateBookCommand command) {
-		Book b = new Book();
-		b.setTitle(command.getTitle());
-		b.setAuthor(command.getAuthor());
-		b.setCount(1);
-		b.setCreatedAt(System.currentTimeMillis());
-		b.setPublishedDate(System.currentTimeMillis());
-		b.setActive(true);
-
-		getBookRepository()
+		BookDomain book = new BookDomain();
+		book.create(command);
+		repository.save(book);
 	}
 }
