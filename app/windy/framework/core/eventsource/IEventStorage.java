@@ -1,14 +1,12 @@
 package windy.framework.core.eventsource;
 
-import java.util.UUID;
-
 import windy.framework.contracts.IEvent;
 
 public interface IEventStorage {
 	
-	public boolean doesEventSourceExist(UUID uid);
+	public boolean doesEventSourceExist(String uid);
 
-	public Iterable<IEvent> getAllEvents(UUID sourceId);
+	public Iterable<IEvent> getAllEvents(String sourceId);
 
 	public void save(IEventSource source);
 }

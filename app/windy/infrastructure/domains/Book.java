@@ -1,6 +1,9 @@
 package windy.infrastructure.domains;
 
 import windy.framework.core.domains.BaseAggregateRoot;
+import windy.infrastructure.contracts.commands.book.CreateBookCommand;
+import windy.infrastructure.contracts.commands.book.DeleteBookCommand;
+import windy.infrastructure.contracts.commands.book.UpdateBookGeneralInfoCommand;
 
 public class Book extends BaseAggregateRoot {
 	
@@ -63,9 +66,21 @@ public class Book extends BaseAggregateRoot {
 		this.count = count;
 	}
 
-	public void updateGeneralInfo(String title, String author, long publishedDate) {
-		this.title = title;
-        this.author = author;
-        this.publishedDate = publishedDate;
+	public void apply(CreateBookCommand command) {
+		this.id = command.getId();
+		this.author = command.getAuthor();
+		this.title = command.getTitle();
+        this.publishedDate = System.currentTimeMillis();
+        this.isActive = true;
+        this.count = 1;
+	}
+	
+	public void apply(UpdateBookGeneralInfoCommand command) {
+		this.author = command.getAuthor();
+		this.title = command.getTitle();
+	}
+	
+	public void apply(DeleteBookCommand command) {
+		this.count = 0;
 	}
 }

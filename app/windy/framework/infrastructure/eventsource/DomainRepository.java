@@ -1,32 +1,34 @@
 package windy.framework.infrastructure.eventsource;
 
-import java.util.UUID;
+
+import javax.inject.Inject;
 
 import windy.framework.core.eventsource.IDomainRepository;
 import windy.framework.core.eventsource.IEventSource;
 import windy.framework.core.eventsource.IEventStorage;
 
-public class DomainRepository implements IDomainRepository {
+public class DomainRepository<T extends IEventSource> implements IDomainRepository<T> {
 
+	private IEventStorage eventStorage;
+	
+	@Inject
 	public DomainRepository(IEventStorage eventStorage) {
-		// TODO Auto-generated constructor stub
+		this.eventStorage = eventStorage;
 	}
+
 	@Override
-	public <T extends IEventSource> T getById(UUID id) {
+	public T getById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean doesExist(UUID id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean doesExist(String id) {
+		return eventStorage.doesEventSourceExist(id);
 	}
 
 	@Override
-	public <T extends IEventSource> void save(T aggregate) {
-		// TODO Auto-generated method stub
-		
+	public void save(T aggregate) {
+		eventStorage.save(aggregate);
 	}
-
 }

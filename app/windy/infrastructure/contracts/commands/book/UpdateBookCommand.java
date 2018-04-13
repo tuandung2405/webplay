@@ -1,7 +1,5 @@
 package windy.infrastructure.contracts.commands.book;
 
-import java.util.UUID;
-
 public class UpdateBookCommand extends BookCommand {
 
 	private String title;
@@ -11,9 +9,9 @@ public class UpdateBookCommand extends BookCommand {
 	private boolean isActive;
 	private int count;
 
-	public UpdateBookCommand(UUID uuid, String title, String author, long publishedDate, long createdAt,
+	public UpdateBookCommand(String id, String title, String author, long publishedDate, long createdAt,
 			boolean isActive, int count) {
-		super(uuid);
+		super(id);
 		this.title = title;
 		this.author = author;
 		this.publishedDate = publishedDate;
@@ -45,5 +43,4 @@ public class UpdateBookCommand extends BookCommand {
 	public int getCount() {
 		return count;
 	}
-
 }

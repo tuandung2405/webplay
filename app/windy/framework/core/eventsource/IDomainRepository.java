@@ -1,12 +1,10 @@
 package windy.framework.core.eventsource;
 
-import java.util.UUID;
+public interface IDomainRepository<T extends IEventSource> {
 
-public interface IDomainRepository {
+	public T getById(String id);
 
-	public <T extends IEventSource> T getById(UUID id);
+	public boolean doesExist(String id);
 
-	public boolean doesExist(UUID id);
-
-	public <T extends IEventSource> void save(T aggregate);
+	public void save(T aggregate);
 }

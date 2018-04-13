@@ -2,21 +2,21 @@ package windy.infrastructure.commandhandlers;
 
 import com.google.inject.Inject;
 
+import windy.framework.core.eventsource.IDomainRepository;
 import windy.framework.core.messaging.ICommandHandler;
 import windy.infrastructure.contracts.commands.magazine.MagazineCommand;
-import windy.infrastructure.repositories.MagazineRepository;
+import windy.infrastructure.domains.Magazine;
 
 public abstract class MagazineCommandHandler<T extends MagazineCommand> implements ICommandHandler<T>{
 
-	private MagazineRepository magazineRepository;
+	private IDomainRepository<Magazine> repository;
 	
 	@Inject
-	public MagazineCommandHandler(MagazineRepository magazineRepository) {
-		this.magazineRepository = magazineRepository;
+	public MagazineCommandHandler(IDomainRepository<Magazine> repository) {
+		this.repository = repository;
 	}
 	
-	public MagazineRepository getMagazineRepository() {
-		return magazineRepository;
+	public IDomainRepository<Magazine> getMagazineRepository() {
+		return repository;
 	}
-
 }

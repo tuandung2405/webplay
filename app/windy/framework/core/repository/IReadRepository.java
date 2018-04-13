@@ -1,16 +1,14 @@
 package windy.framework.core.repository;
 
-import java.util.UUID;
-
 public interface IReadRepository<T> {
 
 	public Iterable<T> getAll();
 
-	public T getById(UUID uid);
+	public T getById(String uid);
 
 	public void create(T item);
 
 	public void update(T item);
 
-	public void delete(UUID uid);
+	public void delete(String uid);
 }

@@ -1,20 +1,41 @@
 package windy.infrastructure.repositories;
 
+import javax.inject.Singleton;
+
+import windy.framework.core.eventsource.IDomainRepository;
 import windy.infrastructure.domains.Book;
 
-public class BookRepository extends BaseRepository<Book> {
+public class BookRepository implements IDomainRepository<Book> {
 
-	public BookRepository(Class<Book> clazz) {
-		super(clazz);
-		// TODO Auto-generated constructor stub
+	Book book;
+	
+	@Singleton
+	public BookRepository(Book book) {
+		super();
+		this.book = book;
+//		justTest();
 	}
 
-	public BookRepository() {
-		super(Book.class);
-		justTest();
+	@Override
+	public Book getById(String id) {
+		
+		return null;
 	}
 
-	private void justTest() {
+	@Override
+	public boolean doesExist(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void save(Book aggregate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	/*private void justTest() {
 		Book book1 = new Book();
 		book1.setTitle("book1");
 		book1.setAuthor("Dung");
@@ -23,5 +44,6 @@ public class BookRepository extends BaseRepository<Book> {
 		book1.setActive(true);
 		book1.setCount(1);
 		list.add(book1);
-	}
+	}*/
+
 }

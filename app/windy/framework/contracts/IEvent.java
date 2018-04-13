@@ -1,16 +1,14 @@
 package windy.framework.contracts;
 
-import java.util.UUID;
-
 public interface IEvent {
 
-	public UUID getSourceId();
+	public String getSourceId();
 
-	public void setSourceId(UUID sourceId);
+	public void setSourceId(String sourceId);
 
 	public int getVersion();
 
 	public void setVersion(int version);
 
-	public UUID getUid();
+	public String getId();
 }

@@ -1,21 +1,35 @@
 package windy.infrastructure.repositories;
 
+import windy.framework.core.eventsource.IDomainRepository;
 import windy.infrastructure.domains.Magazine;
 
-public class MagazineRepository extends BaseRepository<Magazine>{
-
-	public MagazineRepository(Class<Magazine> clazz) {
-		super(clazz);
-		// TODO Auto-generated constructor stub
-	}
+public class MagazineRepository implements IDomainRepository<Magazine>{
 
 
 	public MagazineRepository() {
-		super(Magazine.class);
-		justTest();
+		super();
+		//justTest();
+	}
+
+	@Override
+	public Magazine getById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean doesExist(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void save(Magazine aggregate) {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	private void justTest() {
+/*	private void justTest() {
 		Magazine magazine = new Magazine();
 		magazine.setTitle("magazine");
 		magazine.setAuthor("Dung1");
@@ -24,5 +38,5 @@ public class MagazineRepository extends BaseRepository<Magazine>{
 		magazine.setActive(true);
 		magazine.setCount(1);
         list.add(magazine);
-	}
+	}*/
 }

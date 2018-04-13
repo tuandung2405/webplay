@@ -24,6 +24,6 @@ public class CreateBookCommandHandler extends BookCommandHandler<CreateBookComma
 		b.setPublishedDate(System.currentTimeMillis());
 		b.setActive(true);
 
-		getBookRepository().create(b);
+		getBookRepository()
 	}
 }

@@ -1,14 +1,12 @@
 package windy.infrastructure.contracts.commands.magazine;
 
-import java.util.UUID;
-
 public class UpdateMagazineGeneralInfoCommand extends MagazineCommand {
 
 	private String title;
 	private String author;
 
-	public UpdateMagazineGeneralInfoCommand(UUID uuid, String title, String author) {
-		super(uuid);
+	public UpdateMagazineGeneralInfoCommand(String id, String title, String author) {
+		super(id);
 		this.title = title;
 		this.author = author;
 	}

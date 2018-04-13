@@ -1,7 +1,5 @@
 package windy.infrastructure.contracts.commands.magazine;
 
-import java.util.UUID;
-
 public class UpdateMagazineCommand extends MagazineCommand {
 
 	private String title;
@@ -11,9 +9,9 @@ public class UpdateMagazineCommand extends MagazineCommand {
 	private boolean isActive;
 	private int count;
 
-	public UpdateMagazineCommand(UUID uuid, String title, String author, long publishedDate, long createdAt,
+	public UpdateMagazineCommand(String id, String title, String author, long publishedDate, long createdAt,
 			boolean isActive, int count) {
-		super(uuid);
+		super(id);
 		this.title = title;
 		this.author = author;
 		this.publishedDate = publishedDate;
