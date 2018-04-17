@@ -2,6 +2,9 @@ package windy.infrastructure.contracts.events;
 
 public class BookCreatedEvent extends Event {
 
+	public String title;
+	public String author;
+	
 	@Override
 	public String getSourceId() {
 		return sourceId;
