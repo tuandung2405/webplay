@@ -19,7 +19,7 @@ public class CreateBookCommandHandler implements ICommandHandler<CreateBookComma
 	@Override
 	public void handle(CreateBookCommand command) {
 		BookDomain book = new BookDomain();
-		book.create(command);
+		book.create(command.getId(), command.getTitle(), command.getAuthor());
 		repository.save(book);
 	}
 }

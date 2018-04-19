@@ -19,7 +19,7 @@ public class DeleteBookCommandHandler implements ICommandHandler<DeleteBookComma
 	@Override
 	public void handle(DeleteBookCommand command) {
 		BookDomain book = new BookDomain();
-		book.apply(command);
+		//book.apply(command);
 		repository.save(book);
 	}
 }

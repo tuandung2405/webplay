@@ -19,7 +19,7 @@ public class UpdateBookGeneralInfoCommandHandler implements ICommandHandler<Upda
 	@Override
 	public void handle(UpdateBookGeneralInfoCommand command) {
 		BookDomain book = new BookDomain();
-		book.apply(command);
+		//book.apply(command);
 		repository.save(book);
 	}
 

@@ -1,12 +1,10 @@
 package windy.infrastructure.domains;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import windy.framework.contracts.IEvent;
 import windy.framework.core.domains.BaseAggregateRoot;
-import windy.infrastructure.contracts.commands.book.CreateBookCommand;
 import windy.infrastructure.contracts.events.BookCreatedEvent;
 
 public class BookDomain extends BaseAggregateRoot {
@@ -73,13 +71,11 @@ public class BookDomain extends BaseAggregateRoot {
 		this.count = count;
 	}
 
-	private void setFieldValue(Field[] fields) {
-		
-	}
-	
-	public void create(CreateBookCommand command, IEvent e) {
-		e.setSourceId(command.getSourceId());
-		e.setVersion(command.getVersion());
+	public void create(String id, String title, String author) {
+		BookCreatedEvent e = new BookCreatedEvent();
+		e.setSourceId(id);
+		e.title = title;
+		e.author = author;
 		apply(e);
 	}
 	

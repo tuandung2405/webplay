@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.UUID;
-
 import javax.inject.Inject;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,28 +10,26 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import windy.framework.infrastructure.messaging.CommandBus;
 import windy.infrastructure.contracts.commands.book.CreateBookCommand;
-import windy.infrastructure.contracts.commands.book.DeleteBookCommand;
-import windy.infrastructure.contracts.commands.book.UpdateBookCommand;
-import windy.infrastructure.domains.BookDomain;
 import windy.infrastructure.repositories.BookRepository;
 
-public class BookController extends Controller{
-    private CommandBus commandBus;
-    private BookRepository bookRepository;
+public class BookController extends Controller {
+	private CommandBus commandBus;
+	private BookRepository bookRepository;
 
-    @Inject
-    public BookController(CommandBus commandBus, BookRepository bookRepository) {
-        this.commandBus = commandBus;
-        this.bookRepository = bookRepository;
-    }
+	@Inject
+	public BookController(CommandBus commandBus, BookRepository bookRepository) {
+		this.commandBus = commandBus;
+		this.bookRepository = bookRepository;
+	}
 
-    public Result create(){
+	public Result create() {
 
-        JsonNode body = request().body().asJson();
-        CreateBookCommand createBookCommand = new CreateBookCommand(UUID.fromString(body.get("uuid").asText()),body.get("title").asText(),body.get("author").asText());
-        commandBus.send(createBookCommand);
+		JsonNode body = request().body().asJson();
+		CreateBookCommand createBookCommand = new CreateBookCommand(body.get("uuid").asText(),
+				body.get("title").asText(), body.get("author").asText());
+		commandBus.send(createBookCommand);
 
-        ApiResult apiResult = new ApiResult();
-        return ok(Json.toJson(apiResult));
-    }
+		ApiResult apiResult = new ApiResult();
+		return ok(Json.toJson(apiResult));
+	}
 }
