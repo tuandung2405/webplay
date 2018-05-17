@@ -2,18 +2,14 @@ package windy.infrastructure.repositories;
 
 import javax.inject.Singleton;
 
+import org.springframework.stereotype.Repository;
 import windy.framework.core.eventsource.IDomainRepository;
 import windy.infrastructure.domains.BookDomain;
 
 public class BookRepository implements IDomainRepository<BookDomain> {
 
-	BookDomain book;
-	
-	@Singleton
-	public BookRepository(BookDomain book) {
-		super();
-		this.book = book;
-//		justTest();
+	public BookRepository(){
+
 	}
 
 	@Override

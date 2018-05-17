@@ -83,8 +83,9 @@ public class BookDomain extends BaseAggregateRoot {
 		e.setVersion(e.getVersion() + 1);
 		e.setSourceId(this.id);
 		changes.add(e);
-		if(e.getClass().isInstance(BookCreatedEvent.class))
-			when((BookCreatedEvent)e);
+		if(e.getClass().isInstance(BookCreatedEvent.class)) {
+			when((BookCreatedEvent) e);
+		}
 	}
 
 	private void when(BookCreatedEvent event) {

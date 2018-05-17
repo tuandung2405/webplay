@@ -7,14 +7,18 @@ import java.util.Enumeration;
 import java.util.List;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 
 import services.ApplicationTimer;
 import services.AtomicCounter;
 import services.Counter;
+import windy.framework.core.eventsource.IDomainRepository;
 import windy.framework.core.messaging.ICommandHandler;
 import windy.framework.core.messaging.ICommandHandlerFactory;
 import windy.framework.infrastructure.messaging.CommandHandlerFactory;
+import windy.infrastructure.domains.BookDomain;
+import windy.infrastructure.repositories.BookRepository;
 
 /**
  * This class is a Guice module that tells Guice how to bind several
@@ -38,6 +42,7 @@ public class Module extends AbstractModule {
         // Set AtomicCounter as the implementation for Counter.
         bind(Counter.class).to(AtomicCounter.class);
         bind(ICommandHandlerFactory.class).to(CommandHandlerFactory.class);
+        bind(new TypeLiteral<IDomainRepository<BookDomain>>(){}).to(BookRepository.class);
 
         try {
             Class[] handlerClasses = getClasses("windy.infrastructure.commandhandlers.impl");
